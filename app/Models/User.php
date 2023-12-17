@@ -43,6 +43,6 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-	public function comments(){
+	public function s3_accounts(){
 		return $this->hasMany('App\s3_user_account');}
 }

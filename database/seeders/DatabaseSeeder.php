@@ -53,5 +53,20 @@ class DatabaseSeeder extends Seeder
 			'remember_token' => Str::random(10),
 			'admin' => true,
 		]);
+
+		s3_user_account::create([
+			'username' => 'user4',
+			'email' => 'user4@test.com',
+			'access_key' => 'akdpawokdpawodka',
+			'secret_key' => 'dfkopsdfkpwroektwerp',
+			'owner_id' => 15,
+		]);
+		s3_user_account::create([
+			'username' => 'user5',
+			'email' => 'user5@test.com',
+			'access_key' => 'adawmdaiowd',
+			'secret_key' => 'rgeporkgeprogkeprkgeprokg',
+			'owner_id' => 15,
+		]);
 	}
 }

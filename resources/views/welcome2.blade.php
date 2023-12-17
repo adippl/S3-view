@@ -1,5 +1,4 @@
 {{-- 
-    <one line to give the program's name and a brief idea of what it does.>
     S3-viewer - s3 bucket/object browser written in php/laravel/bootstrap
     Copyright (C) 2023  Adam Prycki
 
@@ -32,7 +31,7 @@
                             {{ session('status') }}
                         </div>
 		    @else
-                        @if (Route::has('login') && ! session('status'))
+                        @if (Route::has('login') && ! Auth::check())
                     		{{ __('You are not logged it!') }}
 				<p></p>
 				<a href="{{ route('login') }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Login</a>

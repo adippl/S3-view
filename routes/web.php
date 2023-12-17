@@ -20,3 +20,5 @@ Route::get('/', function () {
 Auth::routes(['register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/home/s3_accounts', [App\Http\Controllers\S3_user_accounts::class, 'index']);
