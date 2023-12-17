@@ -1,0 +1,32 @@
+## S3-viewer
+
+init_db.sh  prepares database
+start.sh    starts serving project
+
+
+## TODO 
+
+Controlers
+	S3_user_accounts 
+		create - create s3_account
+		delete - delete s3_account
+		change - modify s3_account
+		index/details - details about s3_account
+	
+	Bucket_view
+		todo list buckets and objects
+	
+	Admin_account_view
+		index - list all user accounts
+		create - create new user account
+		delete - delete user account
+
+
+	Admin_s3_acccounts_view
+		index - list all s3_accounts
+			    list all accounts by user
+		create - create s3_account for specific user
+		delete - delete s3_account from specific user
+
+
+
