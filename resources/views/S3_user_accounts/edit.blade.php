@@ -33,8 +33,8 @@
 	@csrf
 	<div class="form-group">
 		<label for="username">Your s3 username</label>
-		<input type="text" class="form-control" name="username" aria-describedby="username_help" placeholder="s3 username" value="{{ $account->username }}">
-		<small id="username_help" class="form-text text-muted">comment</small>
+		<input type="text" class="form-control-plaintext" name="username" aria-describedby="username_help" placeholder="s3 username" value="{{ $account->username }}" readonly>
+		<small id="username_help" class="form-text text-muted">You cannot edit account username</small>
 	@error('username')
 		<p>{{ $message }}</p>
 	@enderror

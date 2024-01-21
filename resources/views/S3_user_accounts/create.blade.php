@@ -74,7 +74,7 @@
 
 	<div class="form-group">
 		<label for="desc">Description of your s3 account</label>
-		<input type="password" class="form-control" name="desc" aria-describedby="desc_help" placeholder="description" value="{{ old('description') }}">
+		<input type="text" class="form-control" name="desc" aria-describedby="desc_help" placeholder="description" value="{{ old('description') }}">
 		<small id="desc_help" class="form-text text-muted">comment</small>
 	</div>
 

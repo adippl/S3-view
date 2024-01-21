@@ -80,8 +80,8 @@ class S3_user_accounts extends Controller
 		]);
 
 		$user = Auth::user();
-		$post = s3_user_account::where('owner_id', $user->id )->where('username', $account_username )->get();
-		if( count($post) != 1 ){
+		$s3_user_in_db = s3_user_account::where('owner_id', $user->id )->where('username', $account_username )->get();
+		if( count($s3_user_in_db) != 1 ){
 			#return response([], 404);
 			#abort();
 			abort(404);
@@ -89,8 +89,8 @@ class S3_user_accounts extends Controller
 		$user = Auth::user();
 		$formFields['owner_id'] = $user->id;
 		#dd($formFields);
-		s3_user_account::where('id', $post[0]->id)->update($formFields);
-		#$post[0]->create($formFields);
+		s3_user_account::where('id', $s3_user_in_db[0]->id)->where('username', $s3_user_in_db[0]->username)->update($formFields);
+		#$s3_user_in_db[0]->create($formFields);
 		return redirect('/home/s3_accounts')->with('message', "s3 account successfully added to your account ");
 	}
 	
