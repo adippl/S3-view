@@ -2,20 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome2');
-});
+use App\Http\Controllers\Admin_user_manager;
 
 Auth::routes(['register' => false]);
 
@@ -26,8 +13,14 @@ Route::get('/home/s3_accounts', [App\Http\Controllers\S3_user_accounts::class, '
 Route::post('/home/s3_accounts', [App\Http\Controllers\S3_user_accounts::class, 'store']);
 Route::get('/home/s3_accounts/create', [App\Http\Controllers\S3_user_accounts::class, 'create']);
 Route::get('/home/s3_accounts/{s3_user_account}/edit', [App\Http\Controllers\S3_user_accounts::class, 'edit']);
-Route::get('/home/s3_accounts/{account}/delete', [App\Http\Controllers\S3_user_accounts::class, 'delete']);
+Route::get('/home/s3_accounts/{s3_user_account}/delete', [App\Http\Controllers\S3_user_accounts::class, 'delete']);
 Route::put('/home/s3_accounts/{s3_user_account}', [App\Http\Controllers\S3_user_accounts::class, 'update']);
 Route::delete('/home/s3_accounts/{s3_user_account}', [App\Http\Controllers\S3_user_accounts::class, 'destroy']);
-Route::get('/home/s3_accounts/{account}', [App\Http\Controllers\S3_user_accounts::class, 'show']);
-#Route::get('/home/s3_accounts/{account}', [App\Http\Controllers\S3_user_accounts::class, 'edit']);
+Route::get('/home/s3_accounts/{s3_user_account}', [App\Http\Controllers\S3_user_accounts::class, 'show']);
+
+Route::get('/admin/account_manager', [Admin_user_manager::class, 'index']);
+Route::post('/admin/account_manager', [Admin_user_manager::class, 'store']);
+Route::get('/admin/account_manager/create', [Admin_user_manager::class, 'create']);
+Route::get('/admin/account_manager/{User}/edit', [App\Http\Controllers\Admin_user_manager::class, 'edit']);
+Route::delete('/admin/account_manager/{User}/delete', [App\Http\Controllers\Admin_user_manager::class, 'delete']);
+Route::get('/admin/account_manager/{User}', [App\Http\Controllers\Admin_user_manager::class, 'show']);

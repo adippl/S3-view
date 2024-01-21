@@ -118,7 +118,7 @@ class DatabaseSeeder extends Seeder
 			'email_verified_at' => now(),
 			'password' =>  Hash::make('user1'),
 			'remember_token' => Str::random(10),
-			'admin' => true,
+			'admin' => false,
 		]);
 
 		s3_user_account::create([

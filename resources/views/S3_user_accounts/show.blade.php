@@ -21,7 +21,7 @@
 @section('content')
 <div class="container">
 		<div class="row justify-content-center">
-				<div class="col-md-8">
+				<div class="col-md-12">
 						<div class="card">
 
 								@if(count($account) != 1)
@@ -33,8 +33,8 @@
 								</div>
 								<div class="card-body">
 									<a class="btn btn-secondary" href="{{ url('/home/s3_accounts') }}" role="button">Back to account list</a>
-									<a class="btn btn-primary" href="{{ url('/home/s3_accounts/' . $account->first()['username'] ) . '/edit' }}" role="button">Edit Account TODO</a>
-									<a class="btn btn-danger" href="{{ url('/home/s3_accounts/' . $account->first()['username'] ) . '/delete' }}" role="button">Remove this account TODO</a>
+									<a class="btn btn-primary" href="{{ url('/home/s3_accounts/' . $account->first()['username'] ) . '/edit' }}" role="button">Edit Account</a>
+									<a class="btn btn-danger" href="{{ url('/home/s3_accounts/' . $account->first()['username'] ) . '/delete' }}" role="button">Remove this account</a>
 									
 									<table class="table table-hover">
 										<thead>

@@ -20,7 +20,7 @@
 @section('content')
 <div class="container">
 		<div class="row justify-content-center">
-				<div class="col-md-12">
+				<div class="col-md-8">
 						<div class="card">
 							
 							<div class="card-header">
@@ -33,7 +33,6 @@
 									@csrf
 									<button type="submit" class="btn btn-danger">YES I WANT TO DELETE THIS ACCOUNT</button>
 								</form>
-							</p>
 							<a class="btn btn-secondary" href="{{ url('/home/s3_accounts/' . $account->username ) }}" role="button">Cancel</a>
 						</div>
 				</div>

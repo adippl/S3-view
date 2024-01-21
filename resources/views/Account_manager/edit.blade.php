@@ -20,7 +20,7 @@
 @section('content')
 <div class="container">
 		<div class="row justify-content-center">
-				<div class="col-md-12">
+				<div class="col-md-8">
 						<div class="card">
 
 								<div class="card-header">
@@ -32,8 +32,8 @@
 	@method('PUT')
 	@csrf
 	<div class="form-group">
-		<label for="username">Your s3 username</label>
-		<input type="text" class="form-control-plaintext" name="username" aria-describedby="username_help" placeholder="s3 username" value="{{ $account->username }}" readonly>
+		<label for="username">Username</label>
+		<input type="text" class="form-control-plaintext" name="username" aria-describedby="username_help" placeholder="account username" value="{{ $account->name }}" readonly>
 		<small id="username_help" class="form-text text-muted">You cannot edit account username</small>
 	@error('username')
 		<p>{{ $message }}</p>
@@ -41,31 +41,18 @@
 	</div>
 
 	<div class="form-group">
-		<label for="email">Your s3 account email address</label>
+		<label for="email">Account email</label>
 		<input type="email" class="form-control" name="email" aria-describedby="email_help" placeholder="email" value="{{ $account->email }}">
-		<small id="email_help" class="form-text text-muted">Email account assigned to your s3 account</small>
+		<small id="email_help" class="form-text text-muted">Change and SAVE to update email account</small>
 	@error('email')
 		<p>{{ $message }}</p>
 	@enderror
 	</div>
 
-<div class="form-group">
-	<label for="access_key">Your s3 access_key</label>
-	<input type="text" class="form-control" name="access_key" aria-describedby="access_key_help" placeholder="s3 access_key" value="{{ $account->access_key }}">
-	<!--
-	<small id="access_key_help" class="form-text text-muted">comment</small>
-	-->
-	@error('access_key')
-		<p>{{ $message }}</p>
-	@enderror
-</div>
-
 	<div class="form-group">
-		<label for="secret_key">Your s3 secret key</label>
-		<input type="password" class="form-control" name="secret_key" aria-describedby="secret_key_help" placeholder="secret key" value="{{ $account->secret_key }}">
-		<!--
-		<small id="secret_key_help" class="form-text text-muted">comment</small>
-		-->
+		<label for="secret_key">Password</label>
+		<input type="password" class="form-control" name="raw_password" aria-describedby="secret_key_help" placeholder="your new password" value="">
+		<small id="secret_key_help" class="form-text text-muted">Write new password and SAVE to update password</small>
 	@error('secret_key')
 		<p>{{ $message }}</p>
 	@enderror
@@ -78,21 +65,23 @@
 	</div>
 	-->
 
+	<!--
 	<div class="form-group">
 		<label for="desc">Description of your s3 account</label>
 		<input type="text" class="form-control" name="desc" aria-describedby="desc_help" placeholder="description" value="{{ $account->desc }}">
 		<!--
 		<small id="desc_help" class="form-text text-muted">comment</small>
-		-->
 	</div>
+	-->
 
 
 	</p>
 	<button type="submit" class="btn btn-primary">Update</button>
 
 </form>
-
-							<a class="btn btn-secondary" href="{{ url('/home/s3_accounts/' . $account->username ) }}" role="button">Cancel</a>
+							</p>
+							<a class="btn btn-secondary" href="{{ url('/admin/account_manager/user1' . $account->username ) }}" role="button">Cancel</a>
+							<a class="btn btn-secondary" href="{{ url('/admin/account_manager' . $account->username ) }}" role="button">Back to account list</a>
 						</div>
 				</div>
 		</div>

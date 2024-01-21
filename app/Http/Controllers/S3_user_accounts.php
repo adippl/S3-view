@@ -22,7 +22,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\s3_user_account;
 use App\Models\User;
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
@@ -54,7 +53,7 @@ class S3_user_accounts extends Controller
 	}
 
 	public function store( Request $request) {
-		#dd($request->all());
+		//dd($request->all());
 		$formFields = $request->validate([
 			'username' => [ 'required', Rule::unique( 's3_user_accounts', 'username') ],
 			'email' => [ 'required' , 'email', Rule::unique( 's3_user_accounts', 'email') ],
@@ -78,7 +77,7 @@ class S3_user_accounts extends Controller
 			'secret_key' => 'required' ,
 			'desc' => 'nullable'
 		]);
-
+		
 		$user = Auth::user();
 		$s3_user_in_db = s3_user_account::where('owner_id', $user->id )->where('username', $account_username )->get();
 		if( count($s3_user_in_db) != 1 ){

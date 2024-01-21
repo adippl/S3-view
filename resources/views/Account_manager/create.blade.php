@@ -20,17 +20,17 @@
 @section('content')
 <div class="container">
 		<div class="row justify-content-center">
-				<div class="col-md-12">
+				<div class="col-md-8">
 						<div class="card">
 								<div class="card-header">
-									Fill the forms to add s3 account to your list
+									You are creating a new account
 								</div>
 								<div class="card-body">
 
-<form method="POST" action="/home/s3_accounts">
+<form method="POST" action="/admin/account_manager">
 	@csrf
 	<div class="form-group">
-		<label for="username">Your s3 username</label>
+		<label for="username">Account username</label>
 		<input type="text" class="form-control" name="username" aria-describedby="username_help" placeholder="s3 username" value="{{ old('username') }}">
 		<!--
 		<small id="username_help" class="form-text text-muted">comment</small>
@@ -41,7 +41,7 @@
 	</div>
 
 	<div class="form-group">
-		<label for="email">Your s3 account email address</label>
+		<label for="email">Account email</label>
 		<input type="email" class="form-control" name="email" aria-describedby="email_help" placeholder="email of your s3 account" value="{{ old('email') }}">
 		<!--
 		<small id="email_help" class="form-text text-muted">Email account assigned to your s3 account</small>
@@ -51,24 +51,13 @@
 	@enderror
 	</div>
 
-<div class="form-group">
-	<label for="access_key">Your s3 access_key</label>
-	<input type="text" class="form-control" name="access_key" aria-describedby="access_key_help" placeholder="s3 access_key" value="{{ old('access_key') }}">
-		<!--
-		<small id="access_key_help" class="form-text text-muted">comment</small>
-		-->
-	@error('access_key')
-		<p>{{ $message }}</p>
-	@enderror
-</div>
-
 	<div class="form-group">
-		<label for="secret_key">Your s3 secret key</label>
-		<input type="password" class="form-control" name="secret_key" aria-describedby="secret_key_help" placeholder="s3 secret key"  value="{{ old('secret_key') }}">
+		<label for="password">Account Password</label>
+		<input type="password" class="form-control" name="password" aria-describedby="password_help" placeholder="secure password!!!"  value="">
 		<!--
-		<small id="secret_key_help" class="form-text text-muted">comment</small>
+		<small id="password_help" class="form-text text-muted">comment</small>
 		-->
-	@error('secret_key')
+	@error('password')
 		<p>{{ $message }}</p>
 	@enderror
 	</div>
@@ -80,21 +69,22 @@
 	</div>
 	-->
 
+	<!--
 	<div class="form-group">
 		<label for="desc">Description of your s3 account</label>
 		<input type="text" class="form-control" name="desc" aria-describedby="desc_help" placeholder="description of your account" value="{{ old('description') }}">
 		<!--
 		<small id="desc_help" class="form-text text-muted"></small>
-		-->
 	</div>
+	-->
 
 
 	</p>
-	<button type="submit" class="btn btn-primary">Add account</button>
+	<button type="submit" class="btn btn-primary">Create Account</button>
 
 </form>
-				</p>
-				<a class="btn btn-secondary" href="{{ url('/home/s3_accounts') }}" role="button">Cancel</a>
+					</p>
+					<a class="btn btn-secondary" href="{{ url('/admin/account_manager/') }}" role="button">Cancel</a>
 			</div>
 		</div>
 </div>

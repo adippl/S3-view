@@ -30,11 +30,9 @@
 							{{ session('status') }}
 						</div>
 					@endif
-
-			<p><a class="link-opacity-75" href="/home/s3_viewer_accounts">S3-viewer account manager TODO ADMIN ONLY</a></p>
-			<p><a class="link-opacity-75" href="/home/s3_accounts">S3 account manager</a></p>
-			<p><a class="link-opacity-75" href="/home/bucket_viewer">S3 vucket viewer</a></p>
-
+					<p><a class="link-opacity-75" href="{{ url('/admin/account_manager') }}">S3-viewer account manager TODO should be only visible for admin</a></p>
+					<p><a class="link-opacity-75" href="/home/s3_accounts">S3 account manager</a></p>
+					<p><a class="link-opacity-75" href="/home/bucket_viewer">S3 vucket viewer</a></p>
 				</div>
 			</div>
 		</div>

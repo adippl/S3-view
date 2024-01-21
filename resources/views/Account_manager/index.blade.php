@@ -21,7 +21,7 @@
 @section('content')
 <div class="container">
 	<div class="row justify-content-center">
-		<div class="col-md-12">
+		<div class="col-md-8">
 			
 			@if(session()->has('message'))
 				<div class="alert alert-success" role="alert">
@@ -31,11 +31,11 @@
 			
 			<div class="card">
 				<div class="card-header">
-					{{ __('Your S3 accounts') }}
+					{{ __('User accounts') }}
 				</div>
 				<div class="card-body">
 					
-					<a class="btn btn-primary" href="{{ url('/home/s3_accounts/create') }}" role="button">Add account</a>
+					<a class="btn btn-primary" href="{{ url('/admin/account_manager/create') }}" role="button">Add user account</a>
 						
 						@if(count($accounts) == 0)
 						<p>You have not accounts added</p>
@@ -47,8 +47,7 @@
 									<th scope="col">#</th>
 									<th scope="col">username</th>
 									<th scope="col">email</th>
-									<th scope="col">access key</th>
-									<th scope="col">desc</th>
+									<th scope="col">Admin rights</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -56,15 +55,25 @@
 							@foreach($accounts as $account)
 									<tr>
 										<th scope="row">{{ $loop->iteration }}</th>
-										<td><a href="{{ url('/home/s3_accounts') }}/{{ $account['username'] }}"> {{ $account['username'] }} </a></td>
+										<td><a href="{{ url('/admin/account_manager/') }}/{{ $account['name'] }}"> {{ $account['name'] }} </a></td>
 										<td>{{ $account['email'] }}</td>
-										<td>{{ $account['access_key'] }}</td>
-										<td>{{ $account['desc'] }}</td>
+										@if($account['admin'])
+											<td>
+												<div class="alert alert-danger" role="alert">
+													ADMIN
+												</div>
+											</td>
+										@endif
 									</tr>
 								</a>
 							@endforeach
 						</tbody>
 					</table>
+					{{--
+					<div class="d-flex">
+						{!! $accounts->links() !!}
+					</div>
+					--}}
 				</div>
 			</div>
 		</div>
