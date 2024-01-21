@@ -52,7 +52,9 @@
 <div class="form-group">
 	<label for="access_key">Your s3 access_key</label>
 	<input type="text" class="form-control" name="access_key" aria-describedby="access_key_help" placeholder="s3 access_key" value="{{ $account->access_key }}">
+	<!--
 	<small id="access_key_help" class="form-text text-muted">comment</small>
+	-->
 	@error('access_key')
 		<p>{{ $message }}</p>
 	@enderror
@@ -61,7 +63,9 @@
 	<div class="form-group">
 		<label for="secret_key">Your s3 secret key</label>
 		<input type="password" class="form-control" name="secret_key" aria-describedby="secret_key_help" placeholder="secret key" value="{{ $account->secret_key }}">
+		<!--
 		<small id="secret_key_help" class="form-text text-muted">comment</small>
+		-->
 	@error('secret_key')
 		<p>{{ $message }}</p>
 	@enderror
@@ -76,8 +80,10 @@
 
 	<div class="form-group">
 		<label for="desc">Description of your s3 account</label>
-		<input type="password" class="form-control" name="desc" aria-describedby="desc_help" placeholder="description" value="{{ $account->desc }}">
+		<input type="text" class="form-control" name="desc" aria-describedby="desc_help" placeholder="description" value="{{ $account->desc }}">
+		<!--
 		<small id="desc_help" class="form-text text-muted">comment</small>
+		-->
 	</div>
 
 

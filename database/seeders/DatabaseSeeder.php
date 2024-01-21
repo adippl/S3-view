@@ -55,18 +55,85 @@ class DatabaseSeeder extends Seeder
 		]);
 
 		s3_user_account::create([
-			'username' => 'user4',
-			'email' => 'user4@test.com',
+			'username' => 'test_user1_admin',
+			'email' => 'test_user1_admin@test.com',
 			'access_key' => 'akdpawokdpawodka',
 			'secret_key' => 'dfkopsdfkpwroektwerp',
 			'owner_id' => 15,
 		]);
 		s3_user_account::create([
-			'username' => 'user5',
-			'email' => 'user5@test.com',
+			'username' => 'test_user2_admin',
+			'email' => 'test_user2_admin@test.com',
 			'access_key' => 'adawmdaiowd',
 			'secret_key' => 'rgeporkgeprogkeprkgeprokg',
 			'owner_id' => 15,
+		]);
+		s3_user_account::create([
+			'username' => 'test_user3_admin',
+			'email' => 'test_user3_admin@test.com',
+			'access_key' => 'gmrpmgwpomgwpe',
+			'secret_key' => 'fmewiowmgoneruigeuibei',
+			'owner_id' => 15,
+		]);
+		s3_user_account::create([
+			'username' => 'test_user4_admin',
+			'email' => 'test_user4_admin@test.com',
+			'access_key' => 'gmrpmgwpomgwpe',
+			'secret_key' => 'omgrepgmerigmeorigmeorig',
+			'owner_id' => 15,
+		]);
+		s3_user_account::create([
+			'username' => 'test_user5_admin',
+			'email' => 'test_user5_admin@test.com',
+			'access_key' => 'gmrpmgwpomgwpe',
+			'secret_key' => 'apomrgepogmperogmeprg',
+			'owner_id' => 15,
+		]);
+		s3_user_account::create([
+			'username' => 'test_user6_admin',
+			'email' => 'test_user6_admin@test.com',
+			'access_key' => 'gmrpmgwpomgwpe',
+			'secret_key' => 'adioiwmdqiodqwedqowndoqiwd',
+			'owner_id' => 15,
+		]);
+		s3_user_account::create([
+			'username' => 'test_user7_admin',
+			'email' => 'test_user7_admin@test.com',
+			'access_key' => 'grpegpokgerpgkp',
+			'secret_key' => 'efmspofmsepfsef',
+			'owner_id' => 15,
+		]);
+		s3_user_account::create([
+			'username' => 'test_user8_admin',
+			'email' => 'test_user8_admin@test.com',
+			'access_key' => 'akpomfewpfmwefw',
+			'secret_key' => 'goepgmeprgunuwebfwiebu',
+			'owner_id' => 15,
+		]);
+
+
+		\App\Models\User::create([
+			'name' => 'user1',
+			'email' => 'user1@t.t',
+			'email_verified_at' => now(),
+			'password' =>  Hash::make('user1'),
+			'remember_token' => Str::random(10),
+			'admin' => true,
+		]);
+
+		s3_user_account::create([
+			'username' => 'user1_test1',
+			'email' => 'user1_test1@test.com',
+			'access_key' => 'adawmdaiowd',
+			'secret_key' => 'rgeporkgeprogkeprkgeprokg',
+			'owner_id' => 16,
+		]);
+		s3_user_account::create([
+			'username' => 'user1_test2',
+			'email' => 'user1_test1@test.com',
+			'access_key' => 'adawmdaiowd',
+			'secret_key' => 'rgeporkgeprogkeprkgeprokg',
+			'owner_id' => 16,
 		]);
 	}
 }
