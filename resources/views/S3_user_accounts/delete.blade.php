@@ -1,5 +1,4 @@
-<?php
-/*
+{{-- 
     S3-viewer - s3 bucket/object browser written in php/laravel/bootstrap
     Copyright (C) 2023  Adam Prycki
 
@@ -15,17 +14,28 @@
 
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
-*/
+--}}
+@extends('layouts.app')
 
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class s3_user_account extends Model
-{
-	use HasFactory;
-		protected $fillable = [ 'username', 'email', 'access_key', 'secret_key', 'owner_id', 'desc' ];
-		public function user(){
-			return $this->belongsTo('App\User');}
-}
+@section('content')
+<div class="container">
+		<div class="row justify-content-center">
+				<div class="col-md-8">
+						<div class="card">
+							
+							<div class="card-header">
+								Change values and press "Save" to update account details.
+							</div>
+							<div class="card-body">
+								
+								<form method="POST" action="/home/s3_accounts/{{ $account->username }}">
+									@method('delete')
+									@csrf
+									<button type="submit" class="btn btn-danger">YES I WANT TO DELETE THIS ACCOUNT</button>
+								</form>
+							<a class="btn btn-secondary" href="{{ url('/home/s3_accounts/' . $account->username ) }}" role="button">Cancel</a>
+						</div>
+				</div>
+		</div>
+</div>
+@endsection
